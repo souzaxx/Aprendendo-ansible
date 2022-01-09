@@ -1,4 +1,4 @@
-Fala pessoas! Esse repositório aqui foi criado por causa de um vídeo pro youtube (Como eu gostaria de ter aprendido Ansible)[]
+Fala pessoas! Esse repositório aqui foi criado por causa de um vídeo pro youtube [Como eu gostaria de ter aprendido Ansible](https://youtu.be/j2X8wrvjq8I)
 
 Para executar os passos que mostro no vídeo e dos README desse repo eu assumo que você já tenha o ansible instalado
 
