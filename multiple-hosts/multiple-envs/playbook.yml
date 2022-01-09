@@ -1,0 +1,32 @@
+---
+- hosts: dev
+  become: true
+  tasks:
+    - name: Install Nginx
+      apt:
+        name: nginx
+        state: present
+
+    - name: Change default nginx conf
+      ansible.builtin.template:
+        src: files/hello-world.conf.j2
+        dest: /etc/nginx/sites-available/default
+        owner: root
+        group: root
+        mode: '0644'
+      notify: reload nginx
+
+    - name: Change default nginx website
+      ansible.builtin.template:
+        src: files/index.html.j2
+        dest: /usr/share/nginx/html/index.html
+        owner: root
+        group: root
+        mode: '0644'
+      notify: reload nginx
+
+  handlers:
+    - name: reload nginx
+      service:
+        name=nginx
+        state=reloaded

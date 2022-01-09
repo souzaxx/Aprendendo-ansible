@@ -1,0 +1,30 @@
+Vagrant.configure("2") do |config|
+  config.vm.box = "ubuntu/trusty64"
+
+  config.ssh.insert_key = false
+
+  config.vm.synced_folder ".", "/vagrant", disable: true
+
+  config.vm.box_check_update = false
+
+  config.vm.provider :virtualbox do |v| 
+    v.memory = 256
+    v.linked_clone = true
+  end
+
+  config.vm.define "app_dev" do |app|
+    app.vm.hostname = "app.dev.test"
+    app.vm.network :private_network, ip: "192.168.56.5"
+  end
+
+  config.vm.define "app_hom" do |app|
+    app.vm.hostname = "app.hom.test"
+    app.vm.network :private_network, ip: "192.168.56.15"
+  end
+
+  config.vm.define "app_prod" do |app|
+    app.vm.hostname = "app.prod.test"
+    app.vm.network :private_network, ip: "192.168.56.25"
+  end
+
+end

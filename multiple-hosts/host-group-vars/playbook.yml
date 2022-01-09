@@ -1,0 +1,8 @@
+---
+- hosts: prod
+  become: true
+  tasks:
+    - name: Output Message variable
+      debug:
+        msg: "{{env}}"
+

@@ -1,0 +1,10 @@
+---
+- hosts: app
+  become: true
+  tasks:
+    - name: "Installing nginx"
+      apt:
+        name: "nginx"
+        state: "present"
+
+    - command: "hostname"
