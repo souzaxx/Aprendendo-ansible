@@ -1,0 +1,23 @@
+---
+plugin: aws_ec2
+
+aws_profile: <change-here>
+
+regions:
+  - us-east-1
+
+filters:
+  tag:env: dev
+
+keyed_groups:
+  - key: tags.env
+    separator: ""
+  - key: tags.type
+    separator: ""
+    parent_group: "{{ tags.env }}"
+
+hostnames:
+  - ip-address
+  - dns-name
+  - tag:Name
+  - private-ip-address

@@ -1,1 +1,3 @@
 .vagrant
+.terraform*
+terraform.tfstate*
